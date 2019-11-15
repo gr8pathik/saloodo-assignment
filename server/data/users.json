@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "5dce8201d7077935139b25ed",
+    "name": "Mcfadden Foster ",
+    "username": "biker1",
+    "password": "bikerpass1",
+    "role": "biker"
+  },
+  {
+    "_id": "5dce82012dcd5130c59abd13",
+    "name": "Grant Terry ",
+    "username": "biker2",
+    "password": "bikerpass2",
+    "role": "biker"
+  },
+  {
+    "_id": "5dce82011dfa551d927290bb",
+    "name": "Bernard Graves ",
+    "username": "biker3",
+    "password": "bikerpass3",
+    "role": "biker"
+  },
+  {
+    "_id": "5dce8201169f80c536d92eca",
+    "name": "Bolton Dotson ",
+    "username": "biker4",
+    "password": "bikerpass4",
+    "role": "biker"
+  },
+  {
+    "_id": "5dce82013f616bae87fec914",
+    "name": "Monroe Tucker ",
+    "username": "biker5",
+    "password": "bikerpass5",
+    "role": "biker"
+  },
+  {
+    "_id": "5dce82015ddd9216edad671f",
+    "name": "Gwendolyn Zimmerman ",
+    "username": "biker6",
+    "password": "bikerpass6",
+    "role": "biker"
+  },
+  {
+    "_id": "5dce820139111c222c2c9331",
+    "name": "Stanley Lindsey ",
+    "username": "biker7",
+    "password": "bikerpass7",
+    "role": "biker"
+  },
+  {
+    "_id": "5dce8201b99621ad4908941d",
+    "name": "Oconnor Fowler ",
+    "username": "biker8",
+    "password": "bikerpass8",
+    "role": "biker"
+  },
+  {
+    "_id": "5dce820170e5476e851e4bf1",
+    "name": "Lourdes Navarro ",
+    "username": "biker9",
+    "password": "bikerpass9",
+    "role": "biker"
+  },
+  {
+    "_id": "5dce8201eba7e7a445313cf2",
+    "name": "Sparks Reyes ",
+    "username": "manager1",
+    "password": "managerpass1",
+    "role": "manager"
+  }
+]

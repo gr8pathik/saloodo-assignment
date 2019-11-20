@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import DashboardComponent from "../components/DashboardComponent";
-import {getAllShipments} from "../actions/ShipmentsActions";
+import {getAllShipments, updateShipment} from "../actions/ShipmentsActions";
 import {getAllBikers} from "../actions/BikersActions";
 
 class DashboardContainer extends React.Component {
@@ -10,8 +10,8 @@ class DashboardContainer extends React.Component {
         this.props.getAllBikers();
     };
 
-    onBikerAssign = (biker) => {
-        console.log(biker)
+    onBikerAssign = (biker, shipment) => {
+        if(shipment._id) this.props.updateShipment(shipment._id, {...shipment, assignee: biker._id, status: "ASSIGNED"})
     };
 
     render() {
@@ -27,4 +27,4 @@ class DashboardContainer extends React.Component {
 
 const mapStateToProps = state => ({shipments: state.shipments, user: state.user, bikers: state.bikers});
 
-export default connect(mapStateToProps, {getAllShipments, getAllBikers})(DashboardContainer);
+export default connect(mapStateToProps, {getAllShipments, getAllBikers, updateShipment})(DashboardContainer);

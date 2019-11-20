@@ -20,6 +20,9 @@ const WebApi = {
     getAllBikers() {
         return axios.get('/bikers')
     },
+    updateShipment(shipmentId, shipmentData) {
+        return axios.put("/shipments/"+shipmentId, shipmentData)
+    }
 };
 
 export default WebApi;

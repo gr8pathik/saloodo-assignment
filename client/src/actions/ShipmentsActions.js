@@ -13,3 +13,16 @@ export const getAllShipments = () => {
             });
     }
 };
+
+export const updateShipment = (shipmentId, shipmentData) => {
+    return dispatch => {
+        return WebApi.updateShipment(shipmentId, shipmentData)
+            .then(shipment => {
+                console.log("called");
+                dispatch(getAllShipments());
+            })
+            .catch(() => {
+                const errorMsg = "Update shipment failed.";
+            });
+    }
+};

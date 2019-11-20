@@ -7,7 +7,6 @@ import SearchDropdown from "./SearchDropdown";
 
 export default (props) => {
     const {user, shipments: {isError, shipments}, bikers: {isError: isBikersError, bikers}} = props;
-    console.log("bikers ==>", bikers);
     return (
         <main role="main" className="container">
             <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
@@ -23,7 +22,7 @@ export default (props) => {
                         <div>
                             {shipments.map(shipment => {
                                 return (<div className="row pb-3 mb-0 lh-125 border-bottom border-gray pt-3" key={shipment._id}>
-                                    <div className="col-9">
+                                    <div className="col-sm-9">
                                         <FontAwesomeIcon icon={faMapMarkedAlt} className="pr-1"/>
                                         <strong className="text-gray-dark">
                                             {shipment.origin} -> {shipment.destination}
@@ -34,10 +33,10 @@ export default (props) => {
                                         {shipment.pickupDateTime && <span className="pr-4"><FontAwesomeIcon icon={faClock} className="pr-1"/> Picked up on: {new Date(shipment.pickupDateTime).toDateString()}</span>}
                                         {shipment.deliveryDateTime && <span className="pr-4"><FontAwesomeIcon icon={faClock} className="pr-1"/> Delivered on: {new Date(shipment.deliveryDateTime).toDateString()}</span>}
                                     </div>
-                                    <div className="col-3">
+                                    <div className="col-sm-3">
                                         <span className="font-weight-bold d-block"><FontAwesomeIcon icon={faBiking} className="pr-1"/>Assignee</span>
-                                        {shipment.status.toLowerCase() === "waiting" ?
-                                            <span className="pt-2 d-block"><SearchDropdown data={bikers} onSelect={props.onBikerAssign} selectedItem={shipment.assignee} /></span> :
+                                        {shipment.status.toLowerCase() === "waiting" || shipment.status.toLowerCase() === "assigned" ?
+                                            <span className="pt-2 d-block">{isBikersError ? "Bikers load failed" : <SearchDropdown data={bikers} onSelect={(bikerId) => props.onBikerAssign(bikerId, shipment)} selectedItem={shipment.assignee} />}</span> :
                                             <span className="pt-2 d-block">{shipment.assignee.name || ""}</span>
                                         }
                                     </div>

@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import {loginUser} from "../actions/UserActions";
 
 const LoginContainer = (props) => {
-    console.log("props ==>", props);
     return <LoginComponent
         loginUser={props.loginUser}
         user={props.user}

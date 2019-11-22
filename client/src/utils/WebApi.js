@@ -14,8 +14,8 @@ const WebApi = {
                 return response.data;
             });
     },
-    getAllShipments() {
-        return axios.get('/shipments')
+    getAllShipments(userId) {
+        return axios.get(`/shipments${userId ? "/"+userId:""}`)
     },
     getAllBikers() {
         return axios.get('/bikers')

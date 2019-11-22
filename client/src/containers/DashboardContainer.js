@@ -6,12 +6,17 @@ import {getAllBikers} from "../actions/BikersActions";
 
 class DashboardContainer extends React.Component {
     componentDidMount() {
-        this.props.getAllShipments();
+        this.props.getAllShipments(this.props.user.role === "biker" && this.props.user._id);
         this.props.getAllBikers();
     };
 
     onBikerAssign = (biker, shipment) => {
         if(shipment._id) this.props.updateShipment(shipment._id, {...shipment, assignee: biker._id, status: "ASSIGNED"})
+    };
+
+    onOrderAction = (shipment, selectedDate, status) => {
+        console.log("shipment, selectedDate, status =>", shipment, selectedDate.valueOf(), status);
+        if(shipment._id) this.props.updateShipment(shipment._id, {...shipment, assignee: shipment.assignee._id, status, [(status === "PICKED_UP") ? "pickupDateTime":"deliveryDateTime"]:selectedDate.valueOf()})
     };
 
     render() {
@@ -20,6 +25,7 @@ class DashboardContainer extends React.Component {
             user={this.props.user}
             bikers={this.props.bikers}
             onBikerAssign={this.onBikerAssign}
+            onOrderAction={this.onOrderAction}
         />
     }
 };
